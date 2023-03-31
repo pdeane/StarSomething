@@ -1,0 +1,27 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d8f835d83cf964bd091cfe5299da1610, type: 3}
+  m_Name: Earthling
+  m_EditorClassIdentifier: 
+  _prefab: {fileID: 5841083364060809277, guid: b5373adc1dffa4b82a8912bc660798db, type: 3}
+  _name: Earthling
+  _acceleration: 10
+  _speed: 100
+  _mass: 1000
+  _energy: 100
+  _energyRegen: 10
+  _hull: 100
+  _shield: 100
+  _shieldRegen: 1
+  _ability1: {fileID: 11400000, guid: d642d8bbfe2d34cf6a64e66033d8d797, type: 2}
+  _ability2: {fileID: 11400000, guid: 2a4de90172674419aa85349dbc58d680, type: 2}
+  _special: {fileID: 11400000, guid: 2a4de90172674419aa85349dbc58d680, type: 2}
