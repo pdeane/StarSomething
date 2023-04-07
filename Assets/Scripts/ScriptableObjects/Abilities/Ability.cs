@@ -4,12 +4,9 @@ namespace StarSomething.ScriptableObjects.Abilities
 {
     public abstract class Ability : ScriptableObject
     {
-        public abstract void Use();
+        [Header("Default Attributes")]
+        [SerializeField] private int _cooldown;
 
-        public virtual Ability Create()
-        {
-            Ability ability = Instantiate(this);
-            return ability;
-        }
+        public abstract void Use();
     }
 }

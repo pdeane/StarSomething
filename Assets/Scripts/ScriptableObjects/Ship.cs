@@ -26,17 +26,14 @@ namespace StarSomething.ScriptableObjects
         [SerializeField] private Ability _ability2;
         [SerializeField] private Ability _special;
 
-        public Ability Ability1 { get; private set; }
-        public Ability Ability2 { get; private set; }
-        public Ability Special { get; private set; }
+        public Ability Ability1 => _ability1;
+        public Ability Ability2 => _ability2;
+        public Ability Special => _special;
         public GameObject ShipObject { get; private set; }
 
         public Ship Create(Transform parent)
         {
             Ship ship = Instantiate(this);
-            ship.Ability1 = _ability1.Create();
-            //ship.Ability2 = _ability2.Create();
-            //ship.Special = _special.Create();
             ship.ShipObject = Instantiate(_prefab, parent);
 
             return ship;

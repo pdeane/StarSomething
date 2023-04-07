@@ -1,72 +1,45 @@
-﻿using StarSomething.ScriptableObjects;
+﻿using StarSomething.Managers;
 using UnityEngine;
-using UnityEngine.InputSystem;
 
 namespace StarSomething.Controllers
 {
-    public class PlayerController : MonoBehaviour
+    public class PlayerController : PlayerControllerBase
     {
-        [Header("Controls")]
-        [SerializeField] private InputActionReference _movement;
-        [SerializeField] private InputActionReference _action1;
-        [SerializeField] private InputActionReference _action2;
-        [SerializeField] private InputActionReference _special;
+        [SerializeField] private InputManager _inputManager;
 
-        [Header("Attributes")]
-        [SerializeField] private Ship _ship;
-
-        private Vector2 MoveVector { get; set; }
-
-        private void Action1_Performed(InputAction.CallbackContext context)
+        #region Events
+        private void InputManager_Action1Performed()
         {
-            Debug.Log("Action 1");
-            _ship.Ability1.Use();
         }
 
-        private void Action2_Performed(InputAction.CallbackContext context)
+        private void InputManager_Action2Performed()
         {
-            Debug.Log("Action 2");
         }
 
-        private void Movement_Canceled(InputAction.CallbackContext context)
+        private void InputManager_SpecialPerformed()
         {
-            MoveVector = context.ReadValue<Vector2>();
-            Debug.Log($"Movement Canceled - {MoveVector}");
         }
 
-        private void Movement_Performed(InputAction.CallbackContext context)
+        private void InputManager_MovementPerformed(Vector2 direction)
         {
-            MoveVector = context.ReadValue<Vector2>();
-            Debug.Log($"Movement Performed - {MoveVector}");
         }
-
-        private void Special_Performed(InputAction.CallbackContext context)
-        {
-            Debug.Log("Special");
-        }
+        #endregion Events
 
         #region Unity
-        private void Awake()
+        private void OnDestroy()
         {
-            _ship = _ship.Create(transform);
+            _inputManager.MovementPerformed -= InputManager_MovementPerformed;
+            _inputManager.Action1Performed -= InputManager_Action1Performed;
+            _inputManager.Action2Performed -= InputManager_Action1Performed;
+            _inputManager.SpecialPerformed -= InputManager_Action1Performed;
         }
 
-        private void OnDisable()
+        private void Start()
         {
-            _action1.action.performed -= Action1_Performed;
-            _action2.action.performed -= Action2_Performed;
-            _special.action.performed -= Special_Performed;
-            _movement.action.canceled -= Movement_Canceled;
-            _movement.action.performed -= Movement_Performed;
-        }
-
-        private void OnEnable()
-        {
-            _action1.action.performed += Action1_Performed;
-            _action2.action.performed += Action2_Performed;
-            _special.action.performed += Special_Performed;
-            _movement.action.canceled += Movement_Canceled;
-            _movement.action.performed += Movement_Performed;
+            _inputManager.MovementPerformed += InputManager_MovementPerformed;
+            _inputManager.Action1Performed += InputManager_Action1Performed;
+            _inputManager.Action2Performed += InputManager_Action1Performed;
+            _inputManager.SpecialPerformed += InputManager_Action1Performed;
         }
         #endregion Unity
     }

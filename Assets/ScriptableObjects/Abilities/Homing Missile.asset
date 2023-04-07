@@ -12,5 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f88ed35e8561a4956808f79147f130df, type: 3}
   m_Name: Homing Missile
   m_EditorClassIdentifier: 
+  _cooldown: 5
   _prefab: {fileID: 5841083364060809277, guid: d5080b12fe0d3447ea16fe6991648881, type: 3}
   _missileSpeed: 100
+  _missileSelfDestruct: 5

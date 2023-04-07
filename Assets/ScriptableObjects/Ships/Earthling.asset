@@ -23,5 +23,5 @@ MonoBehaviour:
   _shield: 100
   _shieldRegen: 1
   _ability1: {fileID: 11400000, guid: d642d8bbfe2d34cf6a64e66033d8d797, type: 2}
-  _ability2: {fileID: 11400000, guid: 2a4de90172674419aa85349dbc58d680, type: 2}
-  _special: {fileID: 11400000, guid: 2a4de90172674419aa85349dbc58d680, type: 2}
+  _ability2: {fileID: 11400000, guid: d642d8bbfe2d34cf6a64e66033d8d797, type: 2}
+  _special: {fileID: 11400000, guid: d642d8bbfe2d34cf6a64e66033d8d797, type: 2}
