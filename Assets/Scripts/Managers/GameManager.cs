@@ -1,10 +1,14 @@
-﻿using StarSomething.Managers;
+﻿using StarSomething.Controllers;
 using UnityEngine;
 
-namespace StarSomething.Controllers
+namespace StarSomething.Managers
 {
-    public class PlayerController : PlayerControllerBase
+    public class GameManager : MonoBehaviour
     {
+        [Header("Controllers")]
+        [SerializeField] private OpponentController _opponentController;
+        [SerializeField] private PlayerController _playerController;
+
         [Header("Managers")]
         [SerializeField] private InputManager _inputManager;
 

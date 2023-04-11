@@ -14,7 +14,7 @@ namespace StarSomething.Managers
         #region Unity
         public void OnMovement(InputAction.CallbackContext context)
         {
-            if (context.phase is InputActionPhase.Performed or InputActionPhase.Canceled)
+            if (context.phase is InputActionPhase.Canceled or InputActionPhase.Performed)
             {
                 Vector2 direction = context.ReadValue<Vector2>();
                 Debug.Log($"Movement Performed - {direction}");
